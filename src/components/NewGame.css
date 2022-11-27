@@ -1,0 +1,18 @@
+.new-game-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.new-game-button {
+  background: none;
+  padding: 5px;
+  transition: 0.5s;
+  font-weight: bold;
+  border: none;
+  font-size: 16pt;
+}
+
+.new-game-button:hover {
+  text-decoration: underline;
+}
