@@ -1,8 +1,8 @@
 {
-  "name": "nonoclone",
+  "name": "nonogram",
   "version": "0.0.0",
   "private": false,
-  "homepage": "https://nonoclone.maarten.dev/",
+  "homepage": "https://nono.maarten.dev/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
