@@ -12,39 +12,39 @@ interface GridProps {
 
 function Grid({ grid, select }: GridProps) {
   const tileSize = 80 / (grid.rows.length + 2);
-  const tileStyle = { width: `${tileSize}vw`, height: `${tileSize}vw`};
+  const tileStyle = { width: `${tileSize}vw`, height: `${tileSize}vw` };
 
   return (
     <div className="grid-container">
       <div>
-      <table className="grid">
-        <thead>
-          <tr>
-            <td style={tileStyle} />
-            {grid.columnHints.map((hints, key) => (
-              <td style={tileStyle} key={key}>
-                <RowHint
-                  vertical
-                  solved={grid.columns[key].isCorrect()}
-                  hints={hints}
-                />
-              </td>
+        <table className="grid">
+          <thead>
+            <tr>
+              <td style={tileStyle} />
+              {grid.columnHints.map((hints, key) => (
+                <td style={tileStyle} key={key}>
+                  <RowHint
+                    vertical
+                    solved={grid.columns[key].isCorrect()}
+                    hints={hints}
+                  />
+                </td>
+              ))}
+              <td style={tileStyle} />
+            </tr>
+          </thead>
+          <tbody>
+            {grid.rows.map((row, key) => (
+              <Row
+                tileStyle={tileStyle}
+                row={row}
+                columns={grid.columns}
+                key={key}
+                select={select}
+              />
             ))}
-            <td style={tileStyle} />
-          </tr>
-        </thead>
-        <tbody>
-          {grid.rows.map((row, key) => (
-            <Row
-              tileStyle={tileStyle}
-              row={row}
-              columns={grid.columns}
-              key={key}
-              select={select}
-            />
-          ))}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
       </div>
     </div>
   );
