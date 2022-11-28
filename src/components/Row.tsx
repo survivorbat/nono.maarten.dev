@@ -4,22 +4,24 @@ import GameRow from '../logic/GameRow';
 import GameTile from '../logic/GameTile';
 import RowHint from './RowHint';
 
-function Row({
-  row,
-  columns,
-  select,
-}: {
+interface RowProps {
   row: GameRow;
+  tileStyle: any;
   columns: GameRow[];
   select: (index: GameTile) => void;
-}) {
+}
+
+function Row({
+  row, columns, select, tileStyle,
+}: RowProps) {
   return (
     <tr>
-      <td>
+      <td style={tileStyle}>
         <RowHint solved={row.isCorrect()} hints={row.getHints()} />
       </td>
       {row.tiles.map((tile, key) => (
         <Tile
+          style={tileStyle}
           solved={columns[key].isCorrect() || row.isCorrect()}
           tile={tile}
           select={select}

@@ -11,14 +11,17 @@ interface GridProps {
 }
 
 function Grid({ grid, select }: GridProps) {
+  const tileSize = 100 / (grid.rows.length + 2);
+  const tileStyle = { width: `${tileSize}%`, height: `${tileSize}%` };
+
   return (
     <div className="grid-container">
       <table className="grid">
         <thead>
           <tr>
-            <td />
+            <td style={tileStyle} />
             {grid.columnHints.map((hints, key) => (
-              <td key={key}>
+              <td style={tileStyle} key={key}>
                 <RowHint
                   vertical
                   solved={grid.columns[key].isCorrect()}
@@ -26,11 +29,18 @@ function Grid({ grid, select }: GridProps) {
                 />
               </td>
             ))}
+            <td style={tileStyle} />
           </tr>
         </thead>
         <tbody>
           {grid.rows.map((row, key) => (
-            <Row row={row} columns={grid.columns} key={key} select={select} />
+            <Row
+              tileStyle={tileStyle}
+              row={row}
+              columns={grid.columns}
+              key={key}
+              select={select}
+            />
           ))}
         </tbody>
       </table>
