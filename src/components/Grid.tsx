@@ -11,11 +11,12 @@ interface GridProps {
 }
 
 function Grid({ grid, select }: GridProps) {
-  const tileSize = 100 / (grid.rows.length + 2);
-  const tileStyle = { width: `${tileSize}%`, height: `${tileSize}%` };
+  const tileSize = 80 / (grid.rows.length + 2);
+  const tileStyle = { width: `${tileSize}vw`, height: `${tileSize}vw`};
 
   return (
     <div className="grid-container">
+      <div>
       <table className="grid">
         <thead>
           <tr>
@@ -44,6 +45,7 @@ function Grid({ grid, select }: GridProps) {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

@@ -38,10 +38,15 @@ function App() {
   };
 
   return (
-    <Container>
+    <Container fluid>
       <Row>
         <Col>
           <Grid grid={grid} select={handleGridSelect} />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <NewGame newGame={newGame} />
         </Col>
       </Row>
       <Row>
@@ -52,11 +57,6 @@ function App() {
       <Row>
         <Col>
           <SuccessField message={successMessage} />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <NewGame newGame={newGame} />
         </Col>
       </Row>
     </Container>

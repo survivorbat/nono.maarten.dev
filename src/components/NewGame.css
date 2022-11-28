@@ -6,7 +6,7 @@
 
 .new-game-button {
   background: none;
-  padding: 5px;
+  margin-top: 1.25em;
   transition: 0.5s;
   font-weight: bold;
   border: none;

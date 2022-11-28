@@ -28,6 +28,7 @@ function Row({
           key={key}
         />
       ))}
+      <td style={tileStyle} />
     </tr>
   );
 }
