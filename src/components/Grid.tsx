@@ -17,7 +17,7 @@ function Grid({ grid, select }: GridProps) {
   const ref = useRef<HTMLDivElement>();
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
-  const [height, setHeight] = useState(0);
+  const [elementHeight, setElementHeight] = useState(0);
 
   // Should be triggered on window resize to re-render the cell width
   const resizeWindow = () => {
@@ -31,11 +31,11 @@ function Grid({ grid, select }: GridProps) {
   }, []);
 
   useLayoutEffect(() => {
-    setHeight(ref.current!.offsetHeight);
+    setElementHeight(ref.current!.offsetHeight);
   }, [windowWidth, windowHeight]);
 
   const gridLength = grid.rows.length + 2;
-  const tileSize = height / gridLength;
+  const tileSize = (elementHeight * 0.8) / gridLength;
   const tileStyle = { width: `${tileSize}px`, height: `${tileSize}px` };
 
   return (

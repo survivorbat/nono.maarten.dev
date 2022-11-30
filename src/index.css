@@ -3,8 +3,11 @@
   scrollbar-color: white black;
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
-  overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 
   margin: 0;
