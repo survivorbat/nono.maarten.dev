@@ -7,9 +7,7 @@ interface TileProps {
   select: (tile: GameTile) => void;
 }
 
-function Tile({
-  tile, select, solved,
-}: TileProps) {
+function Tile({ tile, select, solved }: TileProps) {
   return (
     <div
       onClick={!tile.isSelected() && !solved ? () => select(tile) : undefined}

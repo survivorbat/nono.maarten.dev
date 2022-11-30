@@ -10,7 +10,8 @@
     "@typescript-eslint/consistent-type-assertions": "off",
     "max-len": "off",
     "react/require-default-props": "off",
-    "react/no-array-index-key": "off"
+    "react/no-array-index-key": "off",
+    "jsx-a11y/click-events-have-key-events": "off"
   },
   "plugins": ["@typescript-eslint"],
   "parserOptions": {

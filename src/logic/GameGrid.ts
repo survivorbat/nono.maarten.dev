@@ -22,7 +22,7 @@ export default class GameGrid {
         result[key] = result[key].concat(current);
         return result;
       }, new Array(size).fill([]))
-      .map((tiles) => new GameRow(tiles));
+      .map((result) => new GameRow(result));
 
     this.rowHints = this.rows.map((row) => row.getHints());
 
@@ -32,7 +32,7 @@ export default class GameGrid {
         result[key] = result[key].concat(current);
         return result;
       }, new Array(size).fill([]))
-      .map((tiles) => new GameRow(tiles));
+      .map((result) => new GameRow(result));
 
     this.columnHints = this.columns.map((column) => column.getHints());
   }

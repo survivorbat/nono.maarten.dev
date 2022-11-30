@@ -3,6 +3,7 @@
   color: ghostwhite;
   margin-top: 5%;
   font-weight: bold;
+  transition: 0.5s;
 }
 
 .grid-grid > div {
@@ -12,7 +13,7 @@
 
 .grid-footer {
   display: flex;
-    justify-content: center;
+  justify-content: center;
 }
 
 .grid-hint {
@@ -25,7 +26,7 @@
 }
 
 .tile {
-  border: solid ghostwhite;
+  border: solid ghostwhite 1px;
   transition: 0.5s;
 }
 

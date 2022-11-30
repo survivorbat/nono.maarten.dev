@@ -11,7 +11,7 @@ import NewGame from './components/NewGame';
 import SuccessField from './components/SuccessField';
 
 function App() {
-  const [difficulty, setDifficulty] = useState(2);
+  const [difficulty, setDifficulty] = useState(15);
   const [grid, setGrid] = useState(generateGrid(difficulty));
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
@@ -22,7 +22,7 @@ function App() {
       setErrorMessage('');
     } catch (e) {
       setErrorMessage('Oops, that one was wrong!');
-      setDifficulty(difficulty - 1 < 2 ? difficulty - 1 : difficulty);
+      setDifficulty(difficulty - 1 < 4 ? difficulty - 1 : difficulty);
     }
     setGrid(new GameGrid(grid.tiles, grid.size));
 
@@ -46,11 +46,6 @@ function App() {
       </Row>
       <Row>
         <Col>
-          <NewGame newGame={newGame} />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
           <ErrorField message={errorMessage} />
         </Col>
       </Row>
@@ -59,6 +54,7 @@ function App() {
           <SuccessField message={successMessage} />
         </Col>
       </Row>
+      <NewGame newGame={newGame} />
     </Container>
   );
 }

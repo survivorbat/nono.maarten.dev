@@ -6,9 +6,7 @@ interface RowHintProps {
   vertical?: boolean;
 }
 
-function RowHint({
-  hints, solved, vertical,
-}: RowHintProps) {
+function RowHint({ hints, solved, vertical }: RowHintProps) {
   return (
     <div
       style={{ flexDirection: vertical ? 'column' : 'row' }}

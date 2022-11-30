@@ -12,7 +12,7 @@ export default class GameRow {
       .reduce(
         (result, tile) => {
           if (tile.getSolution()) {
-            result[result.length - 1]++;
+            result[result.length - 1] -= 1;
             return result;
           }
 

@@ -1,9 +1,9 @@
 import * as React from 'react';
+import { Fragment } from 'react';
 import Tile from './Tile';
 import GameRow from '../logic/GameRow';
 import GameTile from '../logic/GameTile';
 import RowHint from './RowHint';
-import {Fragment} from "react";
 
 interface RowProps {
   row: GameRow;
@@ -11,16 +11,11 @@ interface RowProps {
   select: (index: GameTile) => void;
 }
 
-function Row({
-  row, columns, select,
-}: RowProps) {
+function Row({ row, columns, select }: RowProps) {
   return (
-    <Fragment>
+    <>
       <div className="grid-column-hint">
-        <RowHint
-          solved={row.isCorrect()}
-          hints={row.getHints()}
-        />
+        <RowHint solved={row.isCorrect()} hints={row.getHints()} />
       </div>
       {row.tiles.map((tile, key) => (
         <Tile
@@ -30,9 +25,9 @@ function Row({
           key={key}
         />
       ))}
-      <div/>
-      </Fragment>
-      );
+      <div />
+    </>
+  );
 }
 
 export default Row;
