@@ -12,7 +12,7 @@ function Tile({
   tile, select, solved, style,
 }: TileProps) {
   return (
-    <td
+    <div
       style={style}
       onClick={!tile.isSelected() && !solved ? () => select(tile) : undefined}
       className={`tile tile-${tile.isSelected() ? '' : 'un'}selected ${

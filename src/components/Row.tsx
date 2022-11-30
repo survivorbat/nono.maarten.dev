@@ -15,10 +15,14 @@ function Row({
   row, columns, select, tileStyle,
 }: RowProps) {
   return (
-    <tr>
-      <td style={tileStyle}>
-        <RowHint solved={row.isCorrect()} hints={row.getHints()} />
-      </td>
+    <div className="grid-row">
+      <div className="grid-column-hint" style={tileStyle}>
+        <RowHint
+          tileStyle={tileStyle}
+          solved={row.isCorrect()}
+          hints={row.getHints()}
+        />
+      </div>
       {row.tiles.map((tile, key) => (
         <Tile
           style={tileStyle}
@@ -28,8 +32,8 @@ function Row({
           key={key}
         />
       ))}
-      <td style={tileStyle} />
-    </tr>
+      <div style={tileStyle} />
+    </div>
   );
 }
 

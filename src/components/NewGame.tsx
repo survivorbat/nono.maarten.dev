@@ -8,7 +8,7 @@ interface NewGameProps {
 function NewGame({ newGame }: NewGameProps) {
   return (
     <div className="new-game-container">
-      <button onClick={newGame} className="new-game-button">
+      <button type="button" onClick={newGame} className="new-game-button">
         New Game
       </button>
     </div>

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import './App.css';
 import { useState } from 'react';
+import './App.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import Grid from './components/Grid';
 import generateGrid from './logic/Generator';

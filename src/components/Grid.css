@@ -1,22 +1,26 @@
-.grid-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 5%;
-  color: ghostwhite;
-  font-weight: bold;
-}
-
-.row-hint {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.column-hint {
+.grid-grid {
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  color: ghostwhite;
+  margin-top: 5%;
+  font-weight: bold;
+  height: 75vh;
+}
+
+.grid-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.grid-hint {
+  display: flex;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .row-hint-number {
@@ -26,7 +30,7 @@
 
 .tile {
   border: solid ghostwhite;
-  transition: 0.25s;
+  transition: 0.5s;
 }
 
 .hint-solved {
@@ -38,15 +42,15 @@
 }
 
 .tile-unselected:hover {
-  background-color: lightgray;
+  background-color: ghostwhite;
 }
 
 .tile-selected {
-  background-color: lightgray;
+  background-color: ghostwhite;
 }
 
 .tile-selected.tile-solved {
-  background: lightgray;
+  background: ghostwhite;
 }
 
 .tile-unselected.tile-solved {
