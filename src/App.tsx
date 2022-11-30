@@ -11,7 +11,7 @@ import NewGame from './components/NewGame';
 import SuccessField from './components/SuccessField';
 
 function App() {
-  const [difficulty, setDifficulty] = useState(15);
+  const [difficulty, setDifficulty] = useState(2);
   const [grid, setGrid] = useState(generateGrid(difficulty));
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
