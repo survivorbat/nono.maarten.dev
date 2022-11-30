@@ -3,8 +3,8 @@
   scrollbar-color: white black;
 }
 
-html {
-  overflow: hidden;
+body, html {
+  overflow-x: hidden;
 }
 
 body {

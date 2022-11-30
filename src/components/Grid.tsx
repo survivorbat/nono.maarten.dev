@@ -35,7 +35,7 @@ function Grid({ grid, select }: GridProps) {
   }, [windowWidth, windowHeight]);
 
   const gridLength = grid.rows.length + 2;
-  const tileSize = (elementHeight * 0.8) / gridLength;
+  const tileSize = (elementHeight * 0.5) / gridLength;
   const tileStyle = { width: `${tileSize}px`, height: `${tileSize}px` };
 
   return (
@@ -63,7 +63,7 @@ function Grid({ grid, select }: GridProps) {
         />
       ))}
       <div className="grid-row" style={{ height: tileStyle.height }}>
-        <span>{`${gridLength} x ${gridLength}`}</span>
+        <span>{`${gridLength - 2} x ${gridLength - 2}`}</span>
       </div>
     </div>
   );
