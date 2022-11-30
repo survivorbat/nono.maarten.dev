@@ -39,28 +39,26 @@ function Grid({ grid, select }: GridProps) {
   }
 
   return (
-    <>
-      <div className="grid-grid" style={gridStyle} ref={ref as any}>
-        <div/>
-          {grid.columnHints.map((hints, key) => (
-            <RowHint
-              vertical
-              key={key}
-              solved={grid.columns[key].isCorrect()}
-              hints={hints}
-            />
-          ))}
-        <div/>
-        {grid.rows.map((row, key) => (
-          <Row
-            row={row}
-            columns={grid.columns}
+    <div className="grid-grid" style={gridStyle} ref={ref as any}>
+      <div/>
+        {grid.columnHints.map((hints, key) => (
+          <RowHint
+            vertical
             key={key}
-            select={select}
+            solved={grid.columns[key].isCorrect()}
+            hints={hints}
           />
         ))}
-      </div>
-  </>
+      <div/>
+      {grid.rows.map((row, key) => (
+        <Row
+          row={row}
+          columns={grid.columns}
+          key={key}
+          select={select}
+        />
+      ))}
+    </div>
   );
 }
 
