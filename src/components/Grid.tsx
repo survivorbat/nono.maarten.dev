@@ -15,9 +15,8 @@ interface GridProps {
 
 function Grid({ grid, select }: GridProps) {
   const ref = useRef<HTMLDivElement>();
-  const [windowWidth, setWindowWidth] = useState(0);
-  const [windowHeight, setWindowHeight] = useState(0);
-  const [elementHeight, setElementHeight] = useState(0);
+  const [, setWindowWidth] = useState(0);
+  const [, setWindowHeight] = useState(0);
 
   // Should be triggered on window resize to re-render the cell width
   const resizeWindow = () => {
@@ -30,42 +29,38 @@ function Grid({ grid, select }: GridProps) {
     return () => window.removeEventListener('resize', resizeWindow);
   }, []);
 
-  useLayoutEffect(() => {
-    setElementHeight(ref.current!.offsetHeight);
-  }, []);
-
-  const gridLength = grid.rows.length + 4;
-  const tileSize = (elementHeight) / gridLength;
-  const tileStyle = { width: `${tileSize}px`, height: `${tileSize}px` };
+  const gridLength = grid.rows.length + 2;
+  const gridSize = Math.round(Math.log10(window.innerWidth * 25) * 85);
+  const gridStyle = {
+    gridTemplateColumns: `repeat(${gridLength},1fr)`,
+    gridTemplateRows: `repeat(${gridLength}, 1fr)`,
+    height: gridSize,
+    width: gridSize
+  }
 
   return (
-    <div className="grid-grid" ref={ref as any}>
-      <div className="grid-row">
-        <div style={tileStyle} />
-        {grid.columnHints.map((hints, key) => (
-          <RowHint
-            vertical
-            tileStyle={tileStyle}
+    <>
+      <div className="grid-grid" style={gridStyle} ref={ref as any}>
+        <div/>
+          {grid.columnHints.map((hints, key) => (
+            <RowHint
+              vertical
+              key={key}
+              solved={grid.columns[key].isCorrect()}
+              hints={hints}
+            />
+          ))}
+        <div/>
+        {grid.rows.map((row, key) => (
+          <Row
+            row={row}
+            columns={grid.columns}
             key={key}
-            solved={grid.columns[key].isCorrect()}
-            hints={hints}
+            select={select}
           />
         ))}
-        <div style={tileStyle} />
       </div>
-      {grid.rows.map((row, key) => (
-        <Row
-          tileStyle={tileStyle}
-          row={row}
-          columns={grid.columns}
-          key={key}
-          select={select}
-        />
-      ))}
-      <div className="grid-row" style={{ height: tileStyle.height }}>
-        <span>{`${grid.rows.length} x ${grid.rows.length}`}</span>
-      </div>
-    </div>
+  </>
   );
 }
 

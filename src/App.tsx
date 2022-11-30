@@ -40,7 +40,7 @@ function App() {
   return (
     <Container fluid>
       <Row>
-        <Col>
+        <Col className="d-flex justify-content-center">
           <Grid grid={grid} select={handleGridSelect} />
         </Col>
       </Row>

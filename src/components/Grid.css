@@ -1,29 +1,27 @@
 .grid-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
+  display: grid;
   color: ghostwhite;
   margin-top: 5%;
   font-weight: bold;
-  height: 65vh;
-  width: 95vw;
 }
 
-.grid-row {
+.grid-grid > div {
+  width: 100%;
+  height: 100%;
+}
+
+.grid-footer {
   display: flex;
-  justify-content: center;
+    justify-content: center;
 }
 
 .grid-hint {
   display: flex;
   justify-content: space-around;
   align-items: center;
-}
 
-.row-hint-number {
-  padding: 1px;
-  font-size: 10pt;
+  width: 100%;
+  height: 100%;
 }
 
 .tile {
