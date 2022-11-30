@@ -32,10 +32,10 @@ function Grid({ grid, select }: GridProps) {
 
   useLayoutEffect(() => {
     setElementHeight(ref.current!.offsetHeight);
-  }, [windowWidth, windowHeight]);
+  }, []);
 
-  const gridLength = grid.rows.length + 2;
-  const tileSize = (elementHeight * 0.5) / gridLength;
+  const gridLength = grid.rows.length + 4;
+  const tileSize = (elementHeight) / gridLength;
   const tileStyle = { width: `${tileSize}px`, height: `${tileSize}px` };
 
   return (
@@ -63,7 +63,7 @@ function Grid({ grid, select }: GridProps) {
         />
       ))}
       <div className="grid-row" style={{ height: tileStyle.height }}>
-        <span>{`${gridLength - 2} x ${gridLength - 2}`}</span>
+        <span>{`${grid.rows.length} x ${grid.rows.length}`}</span>
       </div>
     </div>
   );
